@@ -4,7 +4,7 @@
   <subtitle><![CDATA[try and try.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://abirdcfly.github.com//"/>
-  <updated>2014-03-09T17:28:37.074Z</updated>
+  <updated>2014-03-09T17:32:32.700Z</updated>
   <id>http://abirdcfly.github.com//</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://abirdcfly.github.com/2014/03/09/kindle-%E6%B1%87%E6%80%BB/"/>
     <id>http://abirdcfly.github.com/2014/03/09/kindle-汇总/</id>
     <published>2014-03-09T05:01:47.000Z</published>
-    <updated>2014-03-09T17:28:20.000Z</updated>
+    <updated>2014-03-09T17:32:21.000Z</updated>
     <content type="html"><![CDATA[<h1 id="kindle-">kindle 资料，教程，使用整理</h1>
 <hr>
 <p><code>基于一年kindle 4 black &amp; kindle paperWhite2 使用及网上资料整理</code></p>
@@ -44,7 +44,7 @@ We fetch it from our neighbors, kindle it at home, communicate it to others and 
 <li><code>kindle DXG</code>:9.7寸屏，PDF效果佳，便携性稍逊于6寸设备。</li>
 </ul>
 <hr>
-<p>好了，如果你已经选定了具体型号，在亚马逊官方或者淘宝下单，经过苦苦等待，拿到了机器。按提示进行了注册与登陆。（ <a href="http://blog.sina.com.cn/s/blog_9d8ec4a301016tpl.html" target="_blank">kindle4，5的开箱见此</a>  [kindlepaperWhite开箱见此] ( <a href="http://www.igao7.com/kindle-paperwhite-open.html" target="_blank">http://www.igao7.com/kindle-paperwhite-open.html</a> )）</p>
+<p>好了，如果你已经选定了具体型号，在亚马逊官方或者淘宝下单，经过苦苦等待，拿到了机器。按提示进行了注册与登陆。（ <a href="http://blog.sina.com.cn/s/blog_9d8ec4a301016tpl.html" target="_blank">kindle4，5的开箱见此</a>  <a href="http://www.igao7.com/kindle-paperwhite-open.html" target="_blank">kindlepaperWhite开箱见此</a>）</p>
 <p>拷贝一本书进入<code>./document</code>来阅读吧。</p>
 <p><strong> 建议大家多买正版书 </strong></p>
 <p>1.一方面，轻易获得的书籍容易不珍惜，具体表现就是屯书，放在电脑里动辄几十G的书籍并不能体现任何东西，我们买它是为了看书，而非其他。
