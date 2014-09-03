@@ -9,6 +9,19 @@
     
     <meta name="author" content="Abirdcfly">
     
+    <meta name="description" content="使用hexo借助github创建静态blog
+背景介绍
+What’s Hexo?
+Hexo 是一个快速，简单并且强大的博客框架。你可以使用Markdown或者其他标记式语言编写网页。    
+安装Hexo
+requirements
+
+Node.js
+Git    
+
+安装步骤
+For windows">
+    
     
     
     
@@ -75,16 +88,77 @@
     </p>
   <p class="article-time">
     <time datetime="2014-09-03T11:39:16.000Z" itemprop="datePublished">9月 3 2014</time>
-    更新日期:<time datetime="2014-09-03T12:41:00.000Z" itemprop="dateModified">9月 3 2014</time>
+    更新日期:<time datetime="2014-09-03T13:09:09.000Z" itemprop="dateModified">9月 3 2014</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		  
+		<h1 id="使用hexo借助github创建静态blog">使用hexo借助github创建静态blog</h1>
+<h2 id="背景介绍">背景介绍</h2>
+<h3 id="What’s_Hexo?">What’s Hexo?</h3>
+<p>Hexo 是一个快速，简单并且强大的博客框架。你可以使用Markdown或者其他标记式语言编写网页。    </p>
+<h2 id="安装Hexo">安装Hexo</h2>
+<h3 id="requirements">requirements</h3>
+<ul>
+<li>Node.js</li>
+<li>Git    </li>
+</ul>
+<h3 id="安装步骤">安装步骤</h3>
+<h4 id="For_windows">For windows</h4>
+<h5 id="Install_Git">Install Git</h5>
+<p><a href="https://windows.github.com/" target="_blank" rel="external">点此下载Github for windows</a>   </p>
+<p>For Windows Vista, 7, &amp; 8    </p>
+<p>然后一步步安装就好了。    </p>
+<h5 id="Install_Node-js">Install Node.js</h5>
+<p><a href="http://nodejs.org/download/" target="_blank" rel="external">点击此处下载Node.js</a>    </p>
+<h5 id="Install_Hexo">Install Hexo</h5>
+<p>命令行输入<code>npm install -g hexo</code>耐心等待完成。    </p>
+<h4 id="For_linux&amp;Mac">For linux&amp;Mac</h4>
+<p><a href="http://hexo.io/docs/" target="_blank" rel="external">Link</a>   </p>
+<h4 id="Notice_for_Macer">Notice for Macer</h4>
+<blockquote>
+<p>You may encounter some problems when compiling. Please install Xcode from App Store first. After Xcode is installed, open Xcode and go to Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install to install command line tools.    </p>
+</blockquote>
+<h5 id="Install_Node-js-1">Install Node.js</h5>
+<p>The best way to install Node.js is installing with nvm.   </p>
+<p><strong>cURL</strong>:   </p>
+<p><code>$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh</code>   </p>
+<p><strong>Wget</strong>:   </p>
+<p><code>$ wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</code>   </p>
+<p>Once installed, restart the terminal and run the following command to install Node.js.   </p>
+<p><code>$ nvm install 0.10</code>   </p>
+<p>Or you can download the <a href="http://nodejs.org/" target="_blank" rel="external">installer</a> and install it.    </p>
+<h5 id="install_Hexo">install Hexo</h5>
+<p>Once all the requirements are installed, you can install Hexo with npm.    </p>
+<p><code>$ npm install -g hexo</code>    </p>
+<h2 id="使用">使用</h2>
+<h3 id="创建新文章">创建新文章</h3>
+<p>使用命令<code>$ hexo new [layout] &lt;title&gt;</code>    </p>
+<p>例如：<code>$ hexo new use_hexo_create_blog</code>会在<code>\source\_posts\</code>创建<code>use_hexo_create_blog.md</code>文件，注意，此处<code>use_hexo_create_blog</code>仅为文件名。    </p>
+<h3 id="编辑文章">编辑文章</h3>
+<p>你可以用任何你喜欢的方式编辑<code>.md</code>文件。我用的是<code>MarkdownPad 2</code><br>打开创建的文件：    </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="label">title:</span> use_hexo_create_blog</div><div class="line"><span class="label">date:</span> <span class="number">2014</span>-<span class="number">09</span>-<span class="number">03</span> <span class="number">19</span>:<span class="number">39</span>:<span class="number">16</span></div><div class="line"><span class="label">tags:</span></div><div class="line">---</div></pre></td></tr></table></figure>
+
+<p>title就是网页标题通常你会在浏览器标签栏看到它。   </p>
+<h3 id="上传到Github">上传到Github</h3>
+<p>使用命令<code>$ hexo generate</code>生成档案。   </p>
+<p>使用命令<code>$ hexo server</code>本地预览(<a href="http://localhost:4000[port默认值为4000，可在" target="_blank" rel="external">http://localhost:4000[port默认值为4000，可在</a> _config.yml中修改]）。    </p>
+<p>使用命令<code>$ hexo deploy</code>上传至Github。    </p>
+<p>以上命令均有简写形式<code>$ hexo g``$ hexo s``$ hexo d</code>。如果不进行预览，可以使用组合命令<code>$ hexo d -g</code>上传至Github。   </p>
+<h2 id="参考列表">参考列表</h2>
+<ul>
+<li><a href="http://hexo.io/docs/" title="hexo官方文档" target="_blank" rel="external">hexo官方文档</a>：详细而全面</li>
+</ul>
+  
 	</div>
 		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/github/">github</a>
+  </div>
 
 
 
@@ -136,7 +210,7 @@ var duoshuoQuery = {short_name:"abirdcfly"};
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用hexo借助github创建静态blog"><span class="toc-number">1.</span> <span class="toc-text">使用hexo借助github创建静态blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景介绍"><span class="toc-number">1.1.</span> <span class="toc-text">背景介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What’s_Hexo?"><span class="toc-number">1.1.1.</span> <span class="toc-text">What’s Hexo?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.2.</span> <span class="toc-text">安装Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#requirements"><span class="toc-number">1.2.1.</span> <span class="toc-text">requirements</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装步骤"><span class="toc-number">1.2.2.</span> <span class="toc-text">安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#For_windows"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">For windows</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Install_Git"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">Install Git</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Install_Node-js"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">Install Node.js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Install_Hexo"><span class="toc-number">1.2.2.1.3.</span> <span class="toc-text">Install Hexo</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#For_linux&Mac"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">For linux&Mac</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Notice_for_Macer"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">Notice for Macer</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Install_Node-js-1"><span class="toc-number">1.2.2.3.1.</span> <span class="toc-text">Install Node.js</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#install_Hexo"><span class="toc-number">1.2.2.3.2.</span> <span class="toc-text">install Hexo</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">1.3.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建新文章"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建新文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑文章"><span class="toc-number">1.3.2.</span> <span class="toc-text">编辑文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传到Github"><span class="toc-number">1.3.3.</span> <span class="toc-text">上传到Github</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考列表"><span class="toc-number">1.4.</span> <span class="toc-text">参考列表</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
@@ -149,6 +223,8 @@ var duoshuoQuery = {short_name:"abirdcfly"};
 <div class="tagslist">
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
+		
+			<li><a href="/tags/github/" title="github">github<sup>1</sup></a></li>
 		
 			<li><a href="/tags/kindle/" title="kindle">kindle<sup>1</sup></a></li>
 		
