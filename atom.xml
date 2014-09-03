@@ -4,7 +4,7 @@
   <subtitle><![CDATA[凡是值得做的事情，都值得慢慢做——做很久很久。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://abirdcfly.github.com/"/>
-  <updated>2014-09-03T16:42:58.426Z</updated>
+  <updated>2014-09-03T16:46:38.945Z</updated>
   <id>http://abirdcfly.github.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://abirdcfly.github.com/2014/09/03/calibre_recipe/"/>
     <id>http://abirdcfly.github.com/2014/09/03/calibre_recipe/</id>
     <published>2014-09-03T14:58:44.000Z</published>
-    <updated>2014-09-03T16:42:26.000Z</updated>
+    <updated>2014-09-03T16:46:30.000Z</updated>
     <content type="html"><![CDATA[<h2 id="about_Calibre">about Calibre</h2>
 <p><img src="https://lh5.googleusercontent.com/_lG58t3XWd3c/TcNwiXkAx_I/AAAAAAAAAEc/M34I4uY9UUY/s800/gui.jpeg" alt="calibre 主界面"></p>
 <p><img src="http://lh6.ggpht.com/_lG58t3XWd3c/SwsfKwvvC0I/AAAAAAAAABo/dnQgVrEwinw/s800/convert.png" alt="calibre 管理书籍"></p>
@@ -73,7 +73,7 @@
 ]]></content>
     
     
-      <category term="kindle,calibre,mobi" scheme="http://abirdcfly.github.com/tags/kindle,calibre,mobi/"/>
+      <category term="kindle" scheme="http://abirdcfly.github.com/tags/kindle/"/>
     
   </entry>
   
