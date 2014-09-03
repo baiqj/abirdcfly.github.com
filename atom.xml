@@ -4,7 +4,7 @@
   <subtitle><![CDATA[凡是值得做的事情，都值得慢慢做——做很久很久。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://abirdcfly.github.com/"/>
-  <updated>2014-09-03T13:09:16.318Z</updated>
+  <updated>2014-09-03T16:42:58.426Z</updated>
   <id>http://abirdcfly.github.com/</id>
   
   <author>
@@ -13,6 +13,69 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[抓取在线网页，利用calibre生成mobi电子书]]></title>
+    <link href="http://abirdcfly.github.com/2014/09/03/calibre_recipe/"/>
+    <id>http://abirdcfly.github.com/2014/09/03/calibre_recipe/</id>
+    <published>2014-09-03T14:58:44.000Z</published>
+    <updated>2014-09-03T16:42:26.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="about_Calibre">about Calibre</h2>
+<p><img src="https://lh5.googleusercontent.com/_lG58t3XWd3c/TcNwiXkAx_I/AAAAAAAAAEc/M34I4uY9UUY/s800/gui.jpeg" alt="calibre 主界面"></p>
+<p><img src="http://lh6.ggpht.com/_lG58t3XWd3c/SwsfKwvvC0I/AAAAAAAAABo/dnQgVrEwinw/s800/convert.png" alt="calibre 管理书籍"></p>
+<p><img src="http://lh5.ggpht.com/_lG58t3XWd3c/SwtEQXhUwVI/AAAAAAAAAB0/AO5OuiC0Cdw/s800/viewer.png" alt="calibre 阅读书籍"></p>
+<p><img src="http://lh5.ggpht.com/_lG58t3XWd3c/SwtE6JlJbgI/AAAAAAAAACA/bJ1m3pH8dLA/s800/stanza_and_calibre.png" alt="calibre"></p>
+<p>calibre是一个自由<strong>开源</strong>的电子书软件套装，可以用来组织、存放、以及管理电子书，支持大多数的电子书格式。同时也支持与许多流行的电子书阅读器进行同步，并可能在DRM的限制下转换电子书的格式。</p>
+<p>即calibre可以<strong>组织管理</strong>你下载的大量藏书，为他们加tag等等，也可以<strong>阅读</strong>mobi，epub等电子书，还可以方便的在各种格式间<strong>转换</strong>。甚至可以<strong>抓取新闻</strong>制成电子书。</p>
+<h3 id="获取">获取</h3>
+<p><a href="http://calibre-ebook.com/download" target="_blank" rel="external">点击这里下载</a><br>calibre支持windows、OS X、Linux以及Portable版本。</p>
+<h2 id="抓取网页获得电子书">抓取网页获得电子书</h2>
+<h3 id="步骤">步骤</h3>
+<ol>
+<li><p>首先，你需要写一个recipe文件，实际就是一个通常不到50行的python脚本(当然，长度视网页复杂度而定)。 </p>
+</li>
+<li><p>在calibre里载入这个recipe脚本，calibre自动多线程下载，打包成mobi格式文件。 </p>
+</li>
+<li><p>你就得到了需要的mobi电子书。  </p>
+</li>
+</ol>
+<p>让我们分步详细说明一下。</p>
+<h4 id="创建recipe文件">创建recipe文件</h4>
+<p>下面以<a href="http://iissnan.com/progit/" target="_blank" rel="external">Pro Git 中文版</a>为例，详细说明如何将在线网页制作为mobi文件。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> calibre.web.feeds.recipes <span class="keyword">import</span> BasicNewsRecipe</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pro_Git_Chinese</span><span class="params">(BasicNewsRecipe)</span>:</span></div><div class="line"> </div><div class="line">    title = <span class="string">'Pro_Git_Chinese'</span></div><div class="line">    description = <span class="string">'Pro_Git_Chinese'</span></div><div class="line">    cover_url = <span class="string">'http://iissnan.com/progit/assets/img/pro-git-cover.jpeg'</span></div><div class="line"> </div><div class="line">    url_pre = <span class="string">'http://iissnan.com/progit/'</span></div><div class="line">    no_stylesheets = <span class="keyword">True</span></div><div class="line">    keep_only_tags = [{ <span class="string">'class'</span>: <span class="string">'col-md-8'</span> }]</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_index</span><span class="params">(self)</span>:</span></div><div class="line"><span class="comment">#recipe的核心method，通过分析目录页，找到各页面链接，并抓取内容，返回一个较复杂的数据结构</span></div><div class="line">        soup = self.index_to_soup(self.url_pre)<span class="comment">#目录页</span></div><div class="line"> </div><div class="line">        div = soup.find(<span class="string">'ul'</span>, { <span class="string">'class'</span>: <span class="string">'toc'</span> })<span class="comment">#目录页的寻找范围</span></div><div class="line"> </div><div class="line">        articles = []</div><div class="line">        <span class="keyword">for</span> link <span class="keyword">in</span> div.findAll(<span class="string">'a'</span>):</div><div class="line"></div><div class="line">            til = link.contents[<span class="number">0</span>].strip()</div><div class="line">            url = self.url_pre +<span class="string">'/'</span>+ link[<span class="string">'href'</span>]</div><div class="line">            a = { <span class="string">'title'</span>: til, <span class="string">'url'</span>: url }</div><div class="line"> </div><div class="line">            articles.append(a)</div><div class="line"> </div><div class="line">        results = [(<span class="string">'Pro_Git_Chinese'</span>, articles)]</div><div class="line"> </div><div class="line">        <span class="keyword">return</span> results</div></pre></td></tr></table></figure>
+
+<p><strong>详细解释一下：</strong></p>
+<h3 id="class">class</h3>
+<p>继承自基类<code>BasicNewsRecipe</code>，这使我们只需要输入少量代码即可套用基类中的大量代码，更加简单&amp;迅速。<br>有关基类<code>BasicNewsRecipe</code>的更多信息<a href="http://manual.calibre-ebook.com/_modules/calibre/web/feeds/news.html#BasicNewsRecipe" target="_blank" rel="external">参见官方文档</a></p>
+<h3 id="整体属性设置">整体属性设置</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">title = 'Pro_Git_Chinese'</div><div class="line">description = 'Pro_Git_Chinese'</div><div class="line">cover_url = 'http:<span class="comment">//iissnan.com/progit/assets/img/pro-git-cover.jpeg'</span></div><div class="line">url_pre = 'http:<span class="comment">//iissnan.com/progit/'</span></div><div class="line">no_stylesheets = True</div><div class="line">keep_only_tags = [{ 'class': 'col-md-<span class="number">8</span>' }]</div></pre></td></tr></table></figure>
+
+<p><code>title</code>：标题<br><code>description</code>：描述<br><code>cover_url</code>：封面图<br><code>url_pre</code>：自定义的网址前缀，非必须<br><code>no_stylesheets</code>：不使用抓取页面的css<br><code>keep_only_tags</code>：#内容页抓取时保留项目，这里这句表示只保留class为col-md-8的元素。<br>另有<a href="http://manual.calibre-ebook.com/news_recipe.html#calibre.web.feeds.news.BasicNewsRecipe.remove_tags" target="_blank" rel="external"><code>remove_tags</code></a>、<a href="http://manual.calibre-ebook.com/news_recipe.html#calibre.web.feeds.news.BasicNewsRecipe.remove_tags_after" target="_blank" rel="external"><code>remove_tags_after</code></a>、<a href="http://manual.calibre-ebook.com/news_recipe.html#calibre.web.feeds.news.BasicNewsRecipe.remove_tags_before" target="_blank" rel="external"><code>remove_tags_before</code></a>等方法，见名得意。</p>
+<p>如果你还想实现更复杂的功能，可以<a href="http://manual.calibre-ebook.com/news_recipe.html" target="_blank" rel="external">查阅官方API文档</a></p>
+<p>另外，经过我的实践，下面这些也是很有用的一些整体属性：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="setting">max_articles_per_feed  = <span class="value"><span class="number">100</span></span></span></div><div class="line"><span class="setting">simultaneous_downloads = <span class="value"><span class="number">5</span></span></span></div><div class="line"><span class="setting">remove_javascript      = <span class="value"><span class="keyword">True</span></span></span></div></pre></td></tr></table></figure>
+
+<p><code>max_articles_per_feed</code>：最大文章数，默认为100。之前下载一本Android开发指南，292项，一直都是下到1/3打包，原因就在这里。所以下载大内容时需要注意修改此项数值。   </p>
+<p><code>simultaneous_downloads</code>：多线程下载数，默认为5，如果你需要更快的话，修改它。   </p>
+<p><code>remove_javascript</code>：从下载好的HTML中去除javascript，对于javascript较多的页面效果不错。   </p>
+<h3 id="parse_index">parse_index</h3>
+<p>整个recipe的核心。必须的部件。<br>关于这部分，我上面的代码是有注释的，另外@张洋的解释很棒，可参考<a href="http://blog.codinglabs.org/articles/convert-html-to-kindle-book.html" target="_blank" rel="external">抓取网页内容生成Kindle电子书</a>，我就不费口水了。</p>
+<h2 id="生成mobi">生成mobi</h2>
+<p>在recipe所在的目录，运行命令行</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ebook-<span class="built_in">convert</span> Pro_Git_Chinese.recipe Pro_Git_Chinese.mobi</div></pre></td></tr></table></figure>
+
+<p>如果你生成的mobi是52kb，用calibre打开里面没有内容的话，是<code>keep_only_tags</code>与<code>div = soup.find(&#39;ul&#39;, { &#39;class&#39;: &#39;toc&#39; })</code>的问题，仔细用F12去审查元素看看是哪里弄错了吧。O(∩_∩)O</p>
+<h2 id="实际效果图">实际效果图</h2>
+<p><img src="/img/kindle1.png" alt="效果图1"><br><img src="/img/kindle2.png" alt="效果图2"><br><img src="/img/kindle3.png" alt="效果图3"><br><img src="/img/kindle4.png" alt="效果图4"><br><img src="/img/kindle5.png" alt="效果图5"><br><img src="/img/kindle6.png" alt="效果图6"><br><img src="/img/kindle7.png" alt="效果图7">   </p>
+<h2 id="recipe仓库">recipe仓库</h2>
+<p>我在github上的recipe仓库<a href="https://github.com/Abirdcfly/kindle-calibre-recipe" target="_blank" rel="external">点这里</a>欢迎大家贡献recipe。 </p>
+<p>我的wiki有关kindle<a href="https://github.com/Abirdcfly/abirdcfly.github.com/wiki/Kindle" target="_blank" rel="external">点这里</a>。</p>
+]]></content>
+    
+    
+      <category term="kindle,calibre,mobi" scheme="http://abirdcfly.github.com/tags/kindle,calibre,mobi/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[使用hexo借助github创建静态blog]]></title>
