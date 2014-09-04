@@ -4,7 +4,7 @@
   <subtitle><![CDATA[凡是值得做的事情，都值得慢慢做——做很久很久。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://abirdcfly.github.io/"/>
-  <updated>2014-09-04T07:24:31.690Z</updated>
+  <updated>2014-09-04T08:39:03.914Z</updated>
   <id>http://abirdcfly.github.io/</id>
   
   <author>
@@ -13,6 +13,29 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[hexo折腾-增添访问计数]]></title>
+    <link href="http://abirdcfly.github.io/2014/09/04/hexo_count_view/"/>
+    <id>http://abirdcfly.github.io/2014/09/04/hexo_count_view/</id>
+    <published>2014-09-04T07:40:26.000Z</published>
+    <updated>2014-09-04T08:38:40.000Z</updated>
+    <content type="html"><![CDATA[<p>！！！本文未完成<br><em>这篇文章来源于我的恶趣味——喜欢看到访问统计页面。</em></p>
+<p>hexo是静态blog，写东西方面，访问快，免费，不用很折腾。但是不可否认，它无法存储动态数据。没有路就走呗，评论不也是用的<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>么。<br>我们借助<a href="http://sae.sina.com.cn/" target="_blank" rel="external">SAE</a>或者<a href="http://developer.baidu.com/bae" target="_blank" rel="external">BAE</a>来实现我们想要的效果。</p>
+<h2 id="SAE">SAE</h2>
+<p>虽说SAE支持PHP，JAVA与Python.但是只有PHP支持counter功能。<br><a href="http://sae.sina.com.cn/doc/php/counter.html" target="_blank" rel="external">使用说明</a>&amp;<a href="http://apidoc.sinaapp.com/sae/SaeCounter.html" target="_blank" rel="external">API使用手册</a>&amp;<a href="http://static.sae.sina.com.cn/flash/video/counter/" target="_blank" rel="external">视频教学</a></p>
+<h2 id="BAE">BAE</h2>
+<p>BAE2.0也有<a href="http://developer.baidu.com/wiki/index.php?title=docs/cplat/rt/counter" target="_blank" rel="external">counter</a>服务。但是BAE3.0暂时没有counter服务。<br>我们用新版BAE来部署。</p>
+<h3 id="创建BAE应用">创建BAE应用</h3>
+<p>到<a href="http://developer.baidu.com/console" target="_blank" rel="external">管理控制台</a>（你可能需要注册，一步一步来就好了。）</p>
+]]></content>
+    
+    
+      <category term="hexo" scheme="http://abirdcfly.github.io/tags/hexo/"/>
+    
+      <category term="BAE" scheme="http://abirdcfly.github.io/tags/BAE/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[抓取在线网页，利用calibre生成mobi电子书]]></title>

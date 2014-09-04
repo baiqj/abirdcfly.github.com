@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://abirdcfly.github.io/2014/09/04/hexo_count_view/</loc>
+    <lastmod>2014-09-04T08:38:40.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://abirdcfly.github.io/2014/09/03/use_hexo_create_blog/</loc>
     <lastmod>2014-09-04T07:20:28.000Z</lastmod>
   </url>
